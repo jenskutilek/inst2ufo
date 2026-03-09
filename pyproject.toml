@@ -7,7 +7,9 @@ authors = [
     { name = "Jens Kutilek", email = "webmail@kutilek.de" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "fonttools[ufo]>=4.61.1",
+]
 
 [build-system]
 requires = ["uv_build>=0.9.26,<0.10.0"]
