@@ -43,6 +43,27 @@ def copy_glyf(font: TTFont, ufo: Font) -> None:
         logger.warning("The font has no glyf table.")
         return
 
+    glyph_set = font.getGlyphSet()
+    logger.info("Copying glyph programs")
+    for glyph_name in glyph_set.keys():
+        if glyph_name not in ufo:
+            logger.warning(f"Glyph from font not found in UFO: '{glyph_name}'")
+            continue
+        ufo_glyph = ufo[glyph_name]
+        tt_glyph = font["glyf"][glyph_name]
+        if LIB in ufo_glyph.lib:
+            logger.warning(
+                "Overwriting existing TrueType instructions "
+                f"in UFO glyph '{glyph_name}'."
+            )
+        lib = ufo_glyph.lib[LIB] = {}
+        if hasattr(tt_glyph, "program"):
+            lib["assembly"] = "\n".join(tt_glyph.program.getAssembly())
+        else:
+            logger.info(f"Glyph '{glyph_name}' does not contain a program.")
+        lib["formatVersion"] = "1"
+        lib["id"] = ""
+
 
 def copy_maxp(font: TTFont, ufo: Font) -> None:
     if "maxp" not in font:
