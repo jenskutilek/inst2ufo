@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Jens Kutilek", email = "webmail@kutilek.de" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = [
     "fonttools[ufo]>=4.61.1",
 ]
