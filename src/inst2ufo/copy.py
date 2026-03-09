@@ -1,6 +1,7 @@
 import logging
 from typing import TYPE_CHECKING
 
+from fontTools.pens.hashPointPen import HashPointPen
 from fontTools.ttLib import TTFont
 from ufoLib2 import Font
 
@@ -43,14 +44,16 @@ def copy_glyf(font: TTFont, ufo: Font) -> None:
         logger.warning("The font has no glyf table.")
         return
 
+    glyf = font["glyf"]
+    hmtx = font["hmtx"]
     glyph_set = font.getGlyphSet()
     logger.info("Copying glyph programs")
-    for glyph_name in glyph_set.keys():
+    for glyph_name, pen_glyph in glyph_set.items():
         if glyph_name not in ufo:
             logger.warning(f"Glyph from font not found in UFO: '{glyph_name}'")
             continue
         ufo_glyph = ufo[glyph_name]
-        tt_glyph = font["glyf"][glyph_name]
+        tt_glyph = glyf[glyph_name]
         if LIB in ufo_glyph.lib:
             logger.warning(
                 "Overwriting existing TrueType instructions "
@@ -62,7 +65,10 @@ def copy_glyf(font: TTFont, ufo: Font) -> None:
         else:
             logger.info(f"Glyph '{glyph_name}' does not contain a program.")
         lib["formatVersion"] = "1"
-        lib["id"] = ""
+        width, _ = hmtx[glyph_name]
+        hpp = HashPointPen(width, glyph_set)
+        pen_glyph.drawPoints(hpp)
+        lib["id"] = hpp.hash
 
 
 def copy_maxp(font: TTFont, ufo: Font) -> None:
