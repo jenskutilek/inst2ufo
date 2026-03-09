@@ -9,7 +9,11 @@ authors = [
 requires-python = ">=3.11"
 dependencies = [
     "fonttools[ufo]>=4.61.1",
+    "ufolib2>=0.18.1",
 ]
+
+[project.scripts]
+inst2ufo = "inst2ufo.cmdline:main"
 
 [build-system]
 requires = ["uv_build>=0.9.26,<0.10.0"]
