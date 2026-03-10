@@ -1,0 +1,264 @@
+{
+.appVersion = "3517";
+.formatVersion = 3;
+DisplayStrings = (
+o
+);
+customParameters = (
+{
+name = "Write lastChange";
+value = 0;
+},
+{
+name = de.kutilek.corretto.active;
+value = "1";
+},
+{
+name = de.kutilek.corretto.ttx;
+value = ".";
+}
+);
+date = "2026-03-09 16:38:39 +0000";
+familyName = "Inst2UFO Test";
+featurePrefixes = (
+{
+code = "languagesystem DFLT dflt;
+languagesystem latn dflt;
+";
+name = Languagesystems;
+},
+{
+code = "### prefix:-1: ###
+### open prefix '' ###
+### close prefix '' ###";
+name = Prefix;
+}
+);
+fontMaster = (
+{
+customParameters = (
+{
+name = "UFO Filename";
+value = tt.ufo;
+}
+);
+id = m01;
+metricValues = (
+{
+over = 16;
+pos = 800;
+},
+{
+over = 16;
+pos = 700;
+},
+{
+over = 16;
+pos = 500;
+},
+{
+over = -16;
+},
+{
+over = -16;
+pos = -200;
+}
+);
+name = Regular;
+stemValues = (
+80,
+20
+);
+userData = {
+layerinfo.color = "0.5,0,0.5,0.7";
+};
+}
+);
+glyphs = (
+{
+glyphname = o;
+layers = (
+{
+hints = (
+{
+horizontal = 1;
+options = 4;
+origin = (0,5);
+stem = 1;
+target = (1,5);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+origin = (0,11);
+stem = 1;
+target = (1,11);
+type = TTStem;
+},
+{
+options = 4;
+origin = (0,8);
+stem = 0;
+target = (1,2);
+type = TTStem;
+},
+{
+options = 4;
+origin = (1,8);
+stem = 0;
+target = (0,2);
+type = TTStem;
+},
+{
+origin = (0,8);
+type = TTSnap;
+},
+{
+origin = (1,8);
+type = TTSnap;
+}
+);
+layerId = m01;
+shapes = (
+{
+closed = 1;
+nodes = (
+(368.5,-8,o),
+(482,128.75,o),
+(482,251,qs),
+(482,373.25,o),
+(368.5,510,o),
+(271,510,qs),
+(173.5,510,o),
+(60,373.25,o),
+(60,251,qs),
+(60,128.75,o),
+(173.5,-8,o),
+(271,-8,qs)
+);
+},
+{
+closed = 1;
+nodes = (
+(205.75,12,o),
+(140,123.5,o),
+(140,251,qs),
+(140,378.5,o),
+(205.75,490,o),
+(271,490,qs),
+(336.25,490,o),
+(402,378.5,o),
+(402,251,qs),
+(402,123.5,o),
+(336.25,12,o),
+(271,12,qs)
+);
+}
+);
+width = 542;
+}
+);
+unicode = 111;
+},
+{
+color = (221,82,53,255);
+glyphname = space;
+layers = (
+{
+layerId = m01;
+userData = {
+public.truetype.instructions = {
+formatVersion = "1";
+id = w200;
+};
+};
+width = 600;
+}
+);
+unicode = 32;
+},
+{
+color = (221,82,53,255);
+glyphname = .notdef;
+layers = (
+{
+layerId = m01;
+userData = {
+public.truetype.instructions = {
+formatVersion = "1";
+id = w600;
+};
+};
+width = 600;
+}
+);
+}
+);
+instances = (
+{
+instanceInterpolations = {
+m01 = 1;
+};
+name = Regular;
+properties = (
+{
+key = postscriptFontName;
+value = "Inst2UFOTest-Regular";
+}
+);
+}
+);
+metrics = (
+{
+type = ascender;
+},
+{
+type = "cap height";
+},
+{
+type = "x-height";
+},
+{
+type = baseline;
+},
+{
+type = descender;
+}
+);
+stems = (
+{
+name = vStem0;
+},
+{
+horizontal = 1;
+name = hStem0;
+}
+);
+unitsPerEm = 1000;
+userData = {
+UFO.lib = {
+com.defcon.sortDescriptor = (
+{
+allowPseudoUnicode = 0;
+ascending = 1;
+type = unicode;
+},
+{
+allowPseudoUnicode = 1;
+ascending = 1;
+type = suffix;
+}
+);
+com.github.googlei18n.cu2qu.curve_type = quadratic;
+public.glyphOrder = (
+space,
+o,
+.notdef
+);
+};
+UFOFormat = 3;
+};
+versionMajor = 1;
+versionMinor = 0;
+}
