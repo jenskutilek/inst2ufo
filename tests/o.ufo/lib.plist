@@ -21,6 +21,8 @@
         <string>suffix</string>
       </dict>
     </array>
+    <key>com.github.googlei18n.cu2qu.curve_type</key>
+    <string>quadratic</string>
     <key>com.schriftgestaltung.DisplayStrings</key>
     <array>
       <string>o</string>
