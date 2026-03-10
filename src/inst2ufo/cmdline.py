@@ -3,6 +3,7 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 from inst2ufo.copy import copy_instructions
+from inst2ufo.remove import remove_instructions
 
 
 def main() -> None:
@@ -57,6 +58,33 @@ def main() -> None:
         out_path = ufo_path if args.out is None else Path(args.out[0])
 
         copy_instructions(ttf_path, ufo_path, out_path)
+
+    else:
+        parser.print_help()
+
+
+def remove() -> None:
+    parser = ArgumentParser(description="Remove TrueType instructions from a UFO.")
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        default=False,
+        help="Verbose output",
+    )
+    parser.add_argument(
+        "ufo",
+        type=str,
+        nargs="+",
+        help="The UFO path(s) to remove TrueType instructions from.",
+    )
+    args = parser.parse_args()
+    if args:
+        if args.verbose:
+            logging.basicConfig(level=logging.INFO)
+
+        for ufo in args.ufo:
+            remove_instructions(Path(ufo))
 
     else:
         parser.print_help()
