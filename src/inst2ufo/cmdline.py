@@ -6,7 +6,7 @@ from inst2ufo.copy import copy_instructions
 from inst2ufo.remove import remove_instructions
 
 
-def main() -> None:
+def copy() -> None:
     parser = ArgumentParser(
         description="Copy TrueType instructions from a binary font to a UFO."
     )

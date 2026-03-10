@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-inst2ufo = "inst2ufo.cmdline:main"
+inst2ufo = "inst2ufo.cmdline:copy"
 rmufoinst = "inst2ufo.cmdline:remove"
 
 [build-system]

@@ -98,7 +98,7 @@ def copy_prep(font: TTFont, ufo: Font) -> None:
     ufo.lib[LIB][LIB_PREP] = "\n".join(prep.program.getAssembly())
 
 
-def copy_instructions(ttf_path: Path, ufo_path: Path, out_path: Path) -> None:
+def copy_instructions(ttf_path: "Path", ufo_path: "Path", out_path: "Path") -> None:
     font = TTFont(ttf_path)
     ufo = Font.open(ufo_path)
     logger.info(ufo)
