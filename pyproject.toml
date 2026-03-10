@@ -12,6 +12,23 @@ dependencies = [
     "ufolib2>=0.18.1",
 ]
 
+[dependency-groups]
+dev = [
+    "flake8",
+    "mypy",
+    "ruff",
+]
+test = [
+    "mypy",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "tox",
+    "tox-gh",
+    "tox-uv",
+    "ufo2ft",
+]
+
 [project.scripts]
 inst2ufo = "inst2ufo.cmdline:copy"
 rmufoinst = "inst2ufo.cmdline:remove"
