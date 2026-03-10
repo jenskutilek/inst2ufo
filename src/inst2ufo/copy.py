@@ -4,18 +4,13 @@ from typing import TYPE_CHECKING
 from fontTools.pens.hashPointPen import HashPointPen
 from fontTools.ttLib import TTFont
 from ufoLib2 import Font
+from inst2ufo.libkeys import LIB, LIB_CVT, LIB_FPGM, LIB_PREP
 
 if TYPE_CHECKING:
     from pathlib import Path
 
 
 logger = logging.getLogger(__name__)
-
-
-LIB = "public.truetype.instructions"
-LIB_CVT = "controlValue"
-LIB_PREP = "controlValueProgram"
-LIB_FPGM = "fontProgram"
 
 
 def copy_cvt(font: TTFont, ufo: Font) -> None:
