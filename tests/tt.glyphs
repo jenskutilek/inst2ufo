@@ -83,18 +83,26 @@ hints = (
 {
 horizontal = 1;
 options = 4;
+origin = (0,11);
+stem = 1;
+target = (1,11);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
 origin = (0,5);
 stem = 1;
 target = (1,5);
 type = TTStem;
 },
 {
-horizontal = 1;
-options = 4;
-origin = (0,11);
-stem = 1;
-target = (1,11);
-type = TTStem;
+origin = (0,8);
+type = TTSnap;
+},
+{
+origin = (1,8);
+type = TTSnap;
 },
 {
 options = 4;
@@ -109,14 +117,6 @@ origin = (1,8);
 stem = 0;
 target = (0,2);
 type = TTStem;
-},
-{
-origin = (0,8);
-type = TTSnap;
-},
-{
-origin = (1,8);
-type = TTSnap;
 }
 );
 layerId = m01;
@@ -167,12 +167,6 @@ glyphname = space;
 layers = (
 {
 layerId = m01;
-userData = {
-public.truetype.instructions = {
-formatVersion = "1";
-id = w200;
-};
-};
 width = 600;
 }
 );
@@ -184,12 +178,6 @@ glyphname = .notdef;
 layers = (
 {
 layerId = m01;
-userData = {
-public.truetype.instructions = {
-formatVersion = "1";
-id = w600;
-};
-};
 width = 600;
 }
 );
