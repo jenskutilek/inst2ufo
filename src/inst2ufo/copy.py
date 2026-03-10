@@ -14,6 +14,17 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
+def binaryToIntList(value: int, start: int = 0) -> list[int]:
+    intList = []
+    counter = start
+    while value:
+        if value & 1:
+            intList.append(counter)
+        value >>= 1
+        counter += 1
+    return intList
+
+
 def copy_cvt(font: TTFont, ufo: Font) -> None:
     if "cvt " not in font:
         logger.info("The font has no control value table (cvt).")
@@ -33,6 +44,16 @@ def copy_fpgm(font: TTFont, ufo: Font) -> None:
         return
     logger.info("Copying font program table")
     ufo.lib[LIB][LIB_FPGM] = "\n".join(fpgm.program.getAssembly())
+
+
+def copy_gasp(font: TTFont, ufo: Font) -> None:
+    if "gasp" not in font:
+        logger.warning("The font has no gasp table.")
+        return
+    ufo.info.openTypeGaspRangeRecords = [
+        {"rangeMaxPPEM": ppm, "rangeGaspBehavior": binaryToIntList(bits)}
+        for ppm, bits in font["gasp"].gaspRange.items()
+    ]
 
 
 def copy_glyf(font: TTFont, ufo: Font) -> None:
@@ -108,6 +129,7 @@ def copy_instructions(
     ufo.lib[LIB] = {}
 
     copy_cvt(font, ufo)
+    copy_gasp(font, ufo)
     copy_fpgm(font, ufo)
     copy_prep(font, ufo)
     copy_maxp(font, ufo)
