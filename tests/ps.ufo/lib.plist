@@ -6,17 +6,17 @@
     <array>
       <dict>
         <key>allowPseudoUnicode</key>
-        <false/>
+        <false />
         <key>ascending</key>
-        <true/>
+        <true />
         <key>type</key>
         <string>unicode</string>
       </dict>
       <dict>
         <key>allowPseudoUnicode</key>
-        <true/>
+        <true />
         <key>ascending</key>
-        <true/>
+        <true />
         <key>type</key>
         <string>suffix</string>
       </dict>
@@ -28,7 +28,7 @@
     <key>com.schriftgestaltung.appVersion</key>
     <string>3517</string>
     <key>com.schriftgestaltung.disablesAutomaticAlignment</key>
-    <false/>
+    <false />
     <key>com.schriftgestaltung.disablesLastChange</key>
     <integer>1</integer>
     <key>com.schriftgestaltung.font.customParameters</key>
@@ -51,9 +51,9 @@
     <key>com.schriftgestaltung.formatVersion</key>
     <integer>3</integer>
     <key>com.schriftgestaltung.useGlyphOrder</key>
-    <false/>
+    <false />
     <key>com.schriftgestaltung.useNiceNames</key>
-    <true/>
+    <true />
     <key>public.glyphOrder</key>
     <array>
       <string>space</string>
