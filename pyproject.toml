@@ -1,6 +1,6 @@
 [project]
 name = "inst2ufo"
-version = "0.1.0"
+version = "0.1.1"
 description = "Copy TrueType instructions from a binary font to a UFO."
 readme = "README.md"
 authors = [
