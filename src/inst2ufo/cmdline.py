@@ -11,6 +11,13 @@ def copy() -> None:
         description="Copy TrueType instructions from a binary font to a UFO."
     )
     parser.add_argument(
+        "-g",
+        "--glyphs",
+        action="store_true",
+        default=False,
+        help="Modify outlines in the UFO to match the TTF exported from Glyphs",
+    )
+    parser.add_argument(
         "-o",
         "--out",
         type=str,
@@ -57,7 +64,7 @@ def copy() -> None:
         )
         out_path = ufo_path if args.out is None else Path(args.out[0])
 
-        copy_instructions(ttf_path, ufo_path, out_path)
+        copy_instructions(ttf_path, ufo_path, out_path, fix_glyphs=args.glyphs)
 
     else:
         parser.print_help()

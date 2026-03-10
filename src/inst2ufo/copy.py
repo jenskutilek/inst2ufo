@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 from fontTools.pens.hashPointPen import HashPointPen
 from fontTools.ttLib import TTFont
 from ufoLib2 import Font
+
 from inst2ufo.libkeys import LIB, LIB_CVT, LIB_FPGM, LIB_PREP
 
 if TYPE_CHECKING:
@@ -59,6 +60,7 @@ def copy_glyf(font: TTFont, ufo: Font) -> None:
             lib["assembly"] = "\n".join(tt_glyph.program.getAssembly())
         else:
             logger.info(f"Glyph '{glyph_name}' does not contain a program.")
+            lib["assembly"] = ""
         lib["formatVersion"] = "1"
         width, _ = hmtx[glyph_name]
         hpp = HashPointPen(width, glyph_set)
@@ -93,7 +95,9 @@ def copy_prep(font: TTFont, ufo: Font) -> None:
     ufo.lib[LIB][LIB_PREP] = "\n".join(prep.program.getAssembly())
 
 
-def copy_instructions(ttf_path: "Path", ufo_path: "Path", out_path: "Path") -> None:
+def copy_instructions(
+    ttf_path: "Path", ufo_path: "Path", out_path: "Path", fix_glyphs: bool = False
+) -> None:
     font = TTFont(ttf_path)
     ufo = Font.open(ufo_path)
     logger.info(ufo)
@@ -111,5 +115,10 @@ def copy_instructions(ttf_path: "Path", ufo_path: "Path", out_path: "Path") -> N
 
     if ufo.lib[LIB]:
         ufo.lib[LIB]["formatVersion"] = "1"
+
+    if fix_glyphs:
+        from inst2ufo.glyphs import fix_outlines_for_glyphs
+
+        fix_outlines_for_glyphs(ufo)
 
     ufo.save(out_path, overwrite=True)
